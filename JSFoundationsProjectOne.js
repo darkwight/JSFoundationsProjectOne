@@ -11,6 +11,14 @@
  */
 function filterEvens(numbers) {
 	// your code goes here!
+	let evens = []
+	for (let i=0; i<numbers.length; i++) {
+		if (numbers[i] % 2 === 0) {
+			evens.push(numbers[i])
+		}
+	}
+
+	return evens
 }
 
 /**
@@ -26,6 +34,14 @@ function filterEvens(numbers) {
  */
 function filterOdds(numbers) {
 	// your code goes here!
+	let odds = []
+	for (let i=0; i<numbers.length; i++) {
+		if (numbers[i] % 2 !== 0) {
+			odds.push(numbers[i])
+		}
+	}
+	
+	return odds
 }
 
 /**
@@ -40,6 +56,15 @@ function filterOdds(numbers) {
  */
 function sumOdds(numbers) {
 	// your code goes here!
+	let odds = filterOdds(numbers)
+	let sum = 0
+
+	for (let i=0; i<odds.length; i++) {
+		sum += odds[i]
+	}
+
+	return sum
+
 }
 
 /**
@@ -60,6 +85,39 @@ function sumOdds(numbers) {
  */
 function makePairs(names) {
 	// your code goes here!
+	let result = []
+	let pairs = []
+
+	// for (let i=0; i<names.length; i+=2) {
+	// 	if(names[i+1]) {
+	// 		result.push([names[i], names[i+1]])
+	// 	} else {
+	// 		// if names[i+1] is undefined
+	// 		result.push([names[i]])
+	// 	}
+	// }
+
+	let i = 0
+	do {
+		result.push(names.slice(i, i+2))
+		i += 2
+	} while (i < names.length)
+
+	// while(names.length > 1) {
+	// 	pairs.push(names.pop())
+	// 	pairs.push(names.pop())
+	// 	result.push(pairs)
+	// 	pairs = []
+	// }
+
+	// // by this point
+	// if (names.length === 1) {
+	// 	result.push([names.pop()])
+	// }
+
+
+
+	return result
 }
 
 /**************************************************
@@ -69,14 +127,14 @@ let numbers = [153,67,9,34,7,67,342,7,34,8656,2,124,5,43];
 let instructors = ["Hamza", "Mshary", "Aziz", "Hussein", "Fawaz"];
 
 // uncomment the following lines to run and test your code.
-// // filterEvens
-// evens = filterEvens(numbers);
-// console.log(evens);
+// filterEvens
+evens = filterEvens(numbers);
+console.log(evens);
 
-// // sumOdds
-// sum = sumOdds(numbers);
-// console.log(sum);
+// sumOdds
+sum = sumOdds(numbers);
+console.log(sum);
 
-// // makePairs
-// let pairs = makePairs(instructors);
-// console.log(pairs);
+// makePairs
+let pairs = makePairs(instructors);
+console.log(pairs);
